@@ -1,0 +1,87 @@
+---
+const navItems = [
+  { href: '/', label: 'Start' },
+  { href: '/angebote/', label: 'Angebote' },
+  { href: '/erlebniskochen/', label: 'Erlebniskochen' },
+  { href: '/katalog/', label: 'Katalog' },
+  { href: '/ueber-linda/', label: 'Über Linda' },
+  { href: '/kontakt/', label: 'Kontakt' },
+];
+const currentPath = Astro.url.pathname;
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-[var(--color-cream)]/95 backdrop-blur-sm border-b border-[var(--color-peach)]">
+  <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="/" class="font-[var(--font-display)] text-xl font-bold text-[var(--color-espresso)] hover:text-[var(--color-terracotta)] transition-colors">
+      Linda <span class="text-[var(--color-terracotta)]">Thermomix</span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <ul class="hidden md:flex items-center gap-8">
+      {navItems.map((item) => (
+        <li>
+          <a
+            href={item.href}
+            class:list={[
+              'text-sm font-semibold tracking-wide uppercase transition-colors',
+              currentPath === item.href
+                ? 'text-[var(--color-terracotta)]'
+                : 'text-[var(--color-warm-gray)] hover:text-[var(--color-terracotta)]',
+            ]}
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <!-- Mobile Hamburger -->
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden flex flex-col gap-1.5 p-2"
+      aria-label="Menü öffnen"
+      aria-expanded="false"
+    >
+      <span class="block w-6 h-0.5 bg-[var(--color-espresso)] transition-transform origin-center" id="bar1"></span>
+      <span class="block w-6 h-0.5 bg-[var(--color-espresso)] transition-opacity" id="bar2"></span>
+      <span class="block w-6 h-0.5 bg-[var(--color-espresso)] transition-transform origin-center" id="bar3"></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-[var(--color-cream)] border-t border-[var(--color-peach)] px-6 pb-6">
+    <ul class="flex flex-col gap-4 pt-4">
+      {navItems.map((item) => (
+        <li>
+          <a
+            href={item.href}
+            class:list={[
+              'block text-lg font-semibold',
+              currentPath === item.href
+                ? 'text-[var(--color-terracotta)]'
+                : 'text-[var(--color-espresso)]',
+            ]}
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const bar1 = document.getElementById('bar1');
+  const bar2 = document.getElementById('bar2');
+  const bar3 = document.getElementById('bar3');
+
+  btn?.addEventListener('click', () => {
+    const isOpen = menu?.classList.toggle('hidden') === false;
+    btn.setAttribute('aria-expanded', String(isOpen));
+    bar1!.style.transform = isOpen ? 'rotate(45deg) translate(3px, 3px)' : '';
+    bar2!.style.opacity = isOpen ? '0' : '1';
+    bar3!.style.transform = isOpen ? 'rotate(-45deg) translate(3px, -3px)' : '';
+  });
+</script>

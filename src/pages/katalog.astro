@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTAButton from '../components/CTAButton.astro';
+import fs from 'node:fs';
+
+// Read CMS content for dynamic PDF
+let katalogPdf = '/assets/katalog/katalog-aktuell.pdf';
+let gueltigBis = '29.03.2026';
+
+try {
+  const raw = fs.readFileSync('src/content/katalog/katalog.md', 'utf-8');
+  const matchPdf = raw.match(/pdf:\s*(.+)/);
+  const matchBis = raw.match(/gueltig_bis:\s*"?([^"\n]+)"?/);
+  if (matchPdf) katalogPdf = matchPdf[1].trim();
+  if (matchBis) gueltigBis = matchBis[1].trim();
+} catch {}
+---
+
+<BaseLayout
+  title="Thermomix Zubehör & Gastgeber-Präsente · Linda"
+  description="Thermomix Zubehör, Gastgeber-Präsente & Cookidoo – entdecke das volle Sortiment mit persönlicher Beratung von Linda."
+>
+  <!-- Header -->
+  <section class="py-20 px-6 bg-[var(--color-peach)]/30">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="mb-6 animate-fade-in-up">Zubehör, Präsente & alles rund um Thermomix</h1>
+      <p class="text-lg text-[var(--color-warm-gray)] animate-fade-in-up delay-1">
+        Als Gastgeberin eines Erlebniskochens bekommst du ein tolles Geschenk – hier sind die aktuellen Highlights.
+      </p>
+    </div>
+  </section>
+
+  <!-- Gastgeber-System erklären -->
+  <section class="py-16 px-6">
+    <div class="max-w-3xl mx-auto reveal">
+      <h2 class="mb-6">So funktioniert das Gastgeber-System</h2>
+      <div class="grid md:grid-cols-3 gap-8 text-center">
+        <div>
+          <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-[var(--color-sage)]/20 flex items-center justify-center text-[var(--color-sage)] text-lg font-bold">1</div>
+          <p class="font-semibold mb-1">3 Gäste einladen</p>
+          <p class="text-sm text-[var(--color-warm-gray)]">Lade mindestens 3 Personen zu dir ein.</p>
+        </div>
+        <div>
+          <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-[var(--color-sage)]/20 flex items-center justify-center text-[var(--color-sage)] text-lg font-bold">2</div>
+          <p class="font-semibold mb-1">Erlebniskochen</p>
+          <p class="text-sm text-[var(--color-warm-gray)]">Wir kochen gemeinsam ein Menü.</p>
+        </div>
+        <div>
+          <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-[var(--color-sage)]/20 flex items-center justify-center text-[var(--color-sage)] text-lg font-bold">3</div>
+          <p class="font-semibold mb-1">Geschenk aussuchen</p>
+          <p class="text-sm text-[var(--color-warm-gray)]">Wähle dein Lieblingsgeschenk aus dem Katalog.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Aktuelle Highlights -->
+  <section class="py-16 px-6 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-center mb-12 reveal">Aktuelle Gastgeber-Highlights</h2>
+      <div class="grid md:grid-cols-3 gap-6 reveal delay-1">
+        <div class="bg-[var(--color-cream)] p-6 rounded-sm">
+          <p class="text-xs uppercase tracking-wider text-[var(--color-terracotta)] font-semibold mb-2">Nur bis 29.03.2026</p>
+          <h3 class="text-base font-bold mb-2">TM7 Mixtopf</h3>
+          <p class="text-[var(--color-warm-gray)] text-sm mb-3">Wert 249 € – für nur 199 € Zuzahlung</p>
+        </div>
+        <div class="bg-[var(--color-cream)] p-6 rounded-sm">
+          <p class="text-xs uppercase tracking-wider text-[var(--color-sage)] font-semibold mb-2">Kostenlos</p>
+          <h3 class="text-base font-bold mb-2">Eier-Pochierer TM6</h3>
+          <p class="text-[var(--color-warm-gray)] text-sm mb-3">Wert 29 € – ohne Zuzahlung</p>
+        </div>
+        <div class="bg-[var(--color-cream)] p-6 rounded-sm">
+          <p class="text-xs uppercase tracking-wider text-[var(--color-sage)] font-semibold mb-2">Kostenlos</p>
+          <h3 class="text-base font-bold mb-2">Multi-Silikonform TM7</h3>
+          <p class="text-[var(--color-warm-gray)] text-sm mb-3">Wert 34 € – ohne Zuzahlung</p>
+        </div>
+        <div class="bg-[var(--color-cream)] p-6 rounded-sm">
+          <p class="text-xs uppercase tracking-wider text-[var(--color-terracotta)] font-semibold mb-2">Top-Angebot</p>
+          <h3 class="text-base font-bold mb-2">Brotmesser Solingen</h3>
+          <p class="text-[var(--color-warm-gray)] text-sm mb-3">Wert 89 € – für nur 25 € Zuzahlung</p>
+        </div>
+        <div class="bg-[var(--color-cream)] p-6 rounded-sm">
+          <p class="text-xs uppercase tracking-wider text-[var(--color-sage)] font-semibold mb-2">Kostenlos</p>
+          <h3 class="text-base font-bold mb-2">Küchenbrett Eiche</h3>
+          <p class="text-[var(--color-warm-gray)] text-sm mb-3">Wert 59 € – ohne Zuzahlung</p>
+        </div>
+        <div class="bg-[var(--color-cream)] p-6 rounded-sm">
+          <p class="text-xs uppercase tracking-wider text-[var(--color-terracotta)] font-semibold mb-2">Premium</p>
+          <h3 class="text-base font-bold mb-2">Thermomix Sensor</h3>
+          <p class="text-[var(--color-warm-gray)] text-sm mb-3">Wert 149 € – für 79 € Zuzahlung</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PDF Katalog -->
+  <section class="py-16 px-6">
+    <div class="max-w-4xl mx-auto text-center reveal">
+      <h2 class="mb-6">Vollständiger Katalog</h2>
+      <p class="text-[var(--color-warm-gray)] mb-8">
+        Den aktuellen Gastgeber-Katalog kannst du hier ansehen oder herunterladen.
+      </p>
+      <div class="bg-white rounded-sm overflow-hidden shadow-sm mb-6">
+        <iframe
+          src={katalogPdf}
+          class="w-full h-[600px] border-0"
+          title="Thermomix Gastgeber-Katalog"
+        ></iframe>
+      </div>
+      <a
+        href={katalogPdf}
+        download
+        class="inline-block px-6 py-3 text-[var(--color-terracotta)] font-semibold underline hover:no-underline"
+      >
+        Katalog als PDF herunterladen
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 px-6 bg-[var(--color-terracotta)]">
+    <div class="max-w-3xl mx-auto text-center text-[var(--color-cream)]">
+      <h2 class="text-[var(--color-cream)] mb-6">Lust auf ein Geschenk?</h2>
+      <p class="text-lg mb-8 opacity-90">
+        Buche ein Erlebniskochen und such dir dein Lieblingsgeschenk aus!
+      </p>
+      <a
+        href="/erlebniskochen/"
+        class="inline-block px-8 py-4 bg-[var(--color-cream)] text-[var(--color-terracotta)] font-semibold rounded-sm hover:scale-[1.02] transition-all"
+      >
+        Erlebniskochen buchen
+      </a>
+    </div>
+  </section>
+</BaseLayout>

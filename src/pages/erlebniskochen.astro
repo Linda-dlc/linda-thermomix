@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import KontaktFormular from '../components/KontaktFormular.astro';
+import CTAButton from '../components/CTAButton.astro';
+---
+
+<BaseLayout
+  title="Erlebniskochen Mainz – Thermomix live erleben"
+  description="Erlebniskochen mit Thermomix in Mainz buchen. Kochen, probieren & Spaß haben – kostenlos bei dir oder Freunden zuhause."
+>
+  <!-- Header -->
+  <section class="py-20 px-6 bg-[var(--color-peach)]/30">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="mb-6 animate-fade-in-up">Erlebniskochen: Gemeinsam kochen, probieren & genießen</h1>
+      <p class="text-lg text-[var(--color-warm-gray)] animate-fade-in-up delay-1">
+        Der beste Weg den Thermomix kennenzulernen – bei dir zuhause, mit Freunden, 100% kostenlos.
+      </p>
+    </div>
+  </section>
+
+  <!-- Was ist Erlebniskochen -->
+  <section class="py-16 px-6">
+    <div class="max-w-4xl mx-auto reveal">
+      <h2 class="mb-8">Was ist ein Erlebniskochen?</h2>
+      <p class="text-[var(--color-warm-gray)] text-lg leading-relaxed mb-6">
+        Ein Erlebniskochen ist eine kostenlose Koch-Vorführung bei dir oder einer Freundin zuhause.
+        Ich bringe den Thermomix TM7 mit und wir kochen zusammen ein leckeres Menü – von der Vorspeise
+        bis zum Dessert. Alles wird frisch zubereitet und natürlich direkt probiert!
+      </p>
+      <p class="text-[var(--color-warm-gray)] text-lg leading-relaxed">
+        Kein Verkaufsdruck, kein Haken. Du und deine Gäste erlebt einfach, was der Thermomix kann.
+        Und als Gastgeberin bekommst du ein Geschenk aus dem
+        <a href="/katalog/" class="underline font-semibold">Gastgeber-Katalog</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- 4 Schritte -->
+  <section class="py-16 px-6 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-center mb-12 reveal">So läuft's ab</h2>
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="text-center reveal">
+          <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-[var(--color-terracotta)] flex items-center justify-center text-[var(--color-cream)] text-xl font-bold">1</div>
+          <h3 class="text-base mb-2">Einladen</h3>
+          <p class="text-[var(--color-warm-gray)] text-sm">Lade mindestens 3 Freundinnen oder Nachbarn zu dir nach Hause ein.</p>
+        </div>
+        <div class="text-center reveal delay-1">
+          <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-[var(--color-terracotta)] flex items-center justify-center text-[var(--color-cream)] text-xl font-bold">2</div>
+          <h3 class="text-base mb-2">Kochen</h3>
+          <p class="text-[var(--color-warm-gray)] text-sm">Ich bringe den Thermomix mit und wir kochen gemeinsam ein tolles Menü.</p>
+        </div>
+        <div class="text-center reveal delay-2">
+          <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-[var(--color-terracotta)] flex items-center justify-center text-[var(--color-cream)] text-xl font-bold">3</div>
+          <h3 class="text-base mb-2">Probieren</h3>
+          <p class="text-[var(--color-warm-gray)] text-sm">Alle probieren die Gerichte – und staunen, wie einfach es geht.</p>
+        </div>
+        <div class="text-center reveal delay-3">
+          <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-[var(--color-terracotta)] flex items-center justify-center text-[var(--color-cream)] text-xl font-bold">4</div>
+          <h3 class="text-base mb-2">Optional kaufen</h3>
+          <p class="text-[var(--color-warm-gray)] text-sm">Wer möchte, kann den Thermomix bestellen. Kein Druck, kein Muss.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gastgeber-Vorteil -->
+  <section class="py-16 px-6">
+    <div class="max-w-3xl mx-auto text-center reveal">
+      <div class="bg-[var(--color-peach)]/40 p-8 rounded-sm">
+        <h2 class="mb-4">Dein Geschenk als Gastgeberin</h2>
+        <p class="text-[var(--color-warm-gray)] text-lg mb-6">
+          Als Dankeschön für deine Einladung darfst du dir ein tolles Geschenk aus dem
+          Gastgeber-Katalog aussuchen – von Küchenzubehör bis zum Thermomix-Sensor!
+        </p>
+        <CTAButton href="/katalog/" label="Katalog ansehen" variant="outline" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Buchungsformular -->
+  <section class="py-16 px-6 bg-white">
+    <div class="max-w-2xl mx-auto reveal">
+      <h2 class="mb-4">Erlebniskochen buchen</h2>
+      <p class="text-[var(--color-warm-gray)] mb-8">
+        Füll einfach das Formular aus und ich melde mich bei dir – meistens innerhalb von 24 Stunden.
+      </p>
+      <KontaktFormular formName="erlebniskochen-buchung" showTermin={true} showOrt={true} />
+    </div>
+  </section>
+</BaseLayout>

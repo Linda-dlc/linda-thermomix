@@ -1,0 +1,52 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/assets"
+public_folder: "/assets"
+
+locale: de
+
+collections:
+  - name: "angebote"
+    label: "Aktuelle Angebote"
+    description: "Hier kannst du die 3 Angebots-Bilder jeden Monat tauschen."
+    files:
+      - name: "angebote"
+        label: "Angebots-Bilder"
+        file: "src/content/angebote/angebote.md"
+        fields:
+          - label: "Angebot 1 (Hauptangebot)"
+            name: "angebot1"
+            widget: "image"
+            required: false
+            hint: "JPG oder PNG, max. 5 MB"
+          - label: "Angebot 2"
+            name: "angebot2"
+            widget: "image"
+            required: false
+            hint: "JPG oder PNG, max. 5 MB"
+          - label: "Angebot 3"
+            name: "angebot3"
+            widget: "image"
+            required: false
+            hint: "JPG oder PNG, max. 5 MB"
+
+  - name: "katalog"
+    label: "Gastgeber-Katalog"
+    description: "Hier kannst du den aktuellen Katalog als PDF hochladen."
+    files:
+      - name: "katalog"
+        label: "Katalog-Datei"
+        file: "src/content/katalog/katalog.md"
+        fields:
+          - label: "Aktueller Katalog (PDF)"
+            name: "pdf"
+            widget: "file"
+            required: false
+            hint: "PDF-Datei, max. 20 MB"
+          - label: "Gültig bis"
+            name: "gueltig_bis"
+            widget: "string"
+            required: false
+            hint: "z.B. März 2026 oder 29.03.2026"

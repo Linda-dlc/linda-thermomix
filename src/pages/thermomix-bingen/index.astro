@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTAButton from '../../components/CTAButton.astro';
+import KontaktFormular from '../../components/KontaktFormular.astro';
+---
+
+<BaseLayout
+  title="Thermomix Beratung Bingen am Rhein · Linda"
+  description="Thermomix TM7 Beratung in Bingen am Rhein. Linda zeigt dir den Thermomix live – kostenlos & unverbindlich."
+>
+  <section class="py-20 px-6 bg-[var(--color-peach)]/30">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="mb-6 animate-fade-in-up">Thermomix live erleben – in Bingen am Rhein</h1>
+      <p class="text-lg text-[var(--color-warm-gray)] animate-fade-in-up delay-1">
+        Kostenlose Thermomix-Vorführung bei dir zuhause in Bingen – persönlich und unverbindlich.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 px-6">
+    <div class="max-w-3xl mx-auto reveal">
+      <h2 class="mb-6">Thermomix Beratung in Bingen</h2>
+      <p class="text-[var(--color-warm-gray)] text-lg leading-relaxed mb-6">
+        Auch in Bingen am Rhein bist du bei mir richtig! Ich bin Linda, Thermomix-Repräsentantin
+        aus Nackenheim, und komme gerne zu dir nach Bingen für eine persönliche Vorführung
+        des Thermomix TM7.
+      </p>
+      <p class="text-[var(--color-warm-gray)] text-lg leading-relaxed mb-6">
+        Ob alleine oder mit Freundinnen – bei einem Erlebniskochen in Bingen zeige ich dir,
+        wie der Thermomix deinen Küchenalltag vereinfacht. Wir kochen gemeinsam,
+        probieren alles und du kannst alle Fragen stellen, die du hast.
+      </p>
+      <p class="text-[var(--color-warm-gray)] text-lg leading-relaxed mb-8">
+        In Bingen und der gesamten Region am Rhein bin ich deine Ansprechpartnerin für alles
+        rund um den Thermomix. Ruf mich einfach an oder schreib mir – ich freu mich!
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <CTAButton href="tel:+4917631276883" label="0176 31276883 anrufen" />
+        <CTAButton href="/erlebniskochen/" label="Erlebniskochen buchen" variant="outline" />
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 px-6 bg-white">
+    <div class="max-w-3xl mx-auto text-center reveal">
+      <h2 class="mb-6">Auch in der Nähe</h2>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/thermomix-nackenheim/" class="px-6 py-3 bg-[var(--color-cream)] rounded-sm shadow-sm hover:shadow-md transition-shadow font-semibold">Nackenheim</a>
+        <a href="/kontakt/" class="px-6 py-3 bg-[var(--color-cream)] rounded-sm shadow-sm hover:shadow-md transition-shadow font-semibold">Mainz</a>
+        <a href="/thermomix-ingelheim/" class="px-6 py-3 bg-[var(--color-cream)] rounded-sm shadow-sm hover:shadow-md transition-shadow font-semibold">Ingelheim</a>
+        <a href="/thermomix-rheinhessen/" class="px-6 py-3 bg-[var(--color-cream)] rounded-sm shadow-sm hover:shadow-md transition-shadow font-semibold">Rheinhessen</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 px-6">
+    <div class="max-w-2xl mx-auto reveal">
+      <h2 class="mb-6">Nachricht schreiben</h2>
+      <KontaktFormular formName="kontakt-bingen" />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTAButton from '../components/CTAButton.astro';
+import fs from 'node:fs';
+
+// Read CMS content for dynamic images
+let angebot1 = '/assets/angebote/angebot-tm7-paket.jpg';
+let angebot2 = '/assets/angebote/angebot-geschenke.jpg';
+let angebot3 = '/assets/angebote/angebot-0prozent.jpg';
+
+try {
+  const raw = fs.readFileSync('src/content/angebote/angebote.md', 'utf-8');
+  const match1 = raw.match(/angebot1:\s*(.+)/);
+  const match2 = raw.match(/angebot2:\s*(.+)/);
+  const match3 = raw.match(/angebot3:\s*(.+)/);
+  if (match1) angebot1 = match1[1].trim();
+  if (match2) angebot2 = match2[1].trim();
+  if (match3) angebot3 = match3[1].trim();
+} catch {}
+---
+
+<BaseLayout
+  title="Thermomix TM7 kaufen Mainz – Angebote & Beratung"
+  description="Thermomix TM7 ab 1.549 € – aktuelle Angebote, 0%-Finanzierung & persönliche Beratung in Mainz. Linda zeigt dir alles!"
+>
+  <!-- Header -->
+  <section class="py-20 px-6 bg-[var(--color-peach)]/30">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="mb-6 animate-fade-in-up">Thermomix TM7 – Angebote & aktuelle Aktionen</h1>
+      <p class="text-lg text-[var(--color-warm-gray)] animate-fade-in-up delay-1">
+        Jeden Monat neue Aktionen. Hier findest du die aktuellen Angebote – persönliche Beratung inklusive.
+      </p>
+    </div>
+  </section>
+
+  <!-- Angebots-Bilder -->
+  <section class="py-16 px-6">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+      <article class="reveal bg-white rounded-sm overflow-hidden shadow-sm">
+        <img src={angebot1} alt="TM7 Paket ab 1.549 €" class="w-full h-auto" loading="lazy" />
+        <div class="p-6">
+          <h3 class="text-lg font-bold mb-2">TM7 Paket</h3>
+          <p class="text-[var(--color-terracotta)] text-2xl font-bold mb-2">ab 1.549 €</p>
+          <p class="text-[var(--color-warm-gray)] text-sm">Art. DE302000 – Der Thermomix TM7 mit allem, was du zum Starten brauchst.</p>
+        </div>
+      </article>
+      <article class="reveal delay-1 bg-white rounded-sm overflow-hidden shadow-sm">
+        <img src={angebot2} alt="Entspannt-kochen-Paket 1.649 €" class="w-full h-auto" loading="lazy" />
+        <div class="p-6">
+          <h3 class="text-lg font-bold mb-2">Entspannt-kochen-Paket</h3>
+          <p class="text-[var(--color-terracotta)] text-2xl font-bold mb-2">1.649 €</p>
+          <p class="text-[var(--color-warm-gray)] text-sm">Inkl. 2. Mixtopf – perfekt für alle, die direkt loslegen wollen. Nur bis 29.03.2026!</p>
+        </div>
+      </article>
+      <article class="reveal delay-2 bg-white rounded-sm overflow-hidden shadow-sm">
+        <img src={angebot3} alt="0%-Finanzierung 24 Raten" class="w-full h-auto" loading="lazy" />
+        <div class="p-6">
+          <h3 class="text-lg font-bold mb-2">0%-Finanzierung</h3>
+          <p class="text-[var(--color-terracotta)] text-2xl font-bold mb-2">24 × 67,50 €</p>
+          <p class="text-[var(--color-warm-gray)] text-sm">Zinsfrei in 24 Monatsraten. Nur bis 29.03.2026!</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Info Section -->
+  <section class="py-16 px-6 bg-white">
+    <div class="max-w-3xl mx-auto reveal">
+      <h2 class="mb-6">Angebote ändern sich monatlich</h2>
+      <p class="text-[var(--color-warm-gray)] text-lg mb-6 leading-relaxed">
+        Vorwerk aktualisiert die Aktionen jeden Monat. Die hier gezeigten Angebote sind aktuell gültig –
+        für die neuesten Infos ruf mich einfach an oder schreib mir. Ich berate dich ehrlich und ohne Druck.
+      </p>
+      <div class="bg-[var(--color-peach)]/40 p-6 rounded-sm">
+        <p class="font-semibold mb-2">Du möchtest den Thermomix erstmal ausprobieren?</p>
+        <p class="text-[var(--color-warm-gray)] mb-4">
+          Bei einem <a href="/erlebniskochen/" class="underline font-semibold">Erlebniskochen</a> zeige ich dir
+          alles in deiner eigenen Küche. Kostenlos und unverbindlich!
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 px-6">
+    <div class="max-w-3xl mx-auto text-center reveal">
+      <h2 class="mb-6">Persönliche Beratung</h2>
+      <p class="text-[var(--color-warm-gray)] text-lg mb-8">
+        Ich beantworte gerne alle Fragen zu Angeboten, Finanzierung und dem Thermomix TM7.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <CTAButton href="tel:+4917631276883" label="0176 31276883 anrufen" />
+        <CTAButton href="/kontakt/" label="Nachricht schreiben" variant="outline" />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

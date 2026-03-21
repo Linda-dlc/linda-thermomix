@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTAButton from '../../components/CTAButton.astro';
+import KontaktFormular from '../../components/KontaktFormular.astro';
+---
+
+<BaseLayout
+  title="Thermomix Beratung Nackenheim · Linda De La Cruz"
+  description="Thermomix Beratung direkt in Nackenheim. Linda kommt zu dir – kostenlose Vorführung, persönliche Beratung, ehrliche Empfehlung."
+>
+  <section class="py-20 px-6 bg-[var(--color-peach)]/30">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="mb-6 animate-fade-in-up">Thermomix Beratung in Nackenheim – direkt bei dir</h1>
+      <p class="text-lg text-[var(--color-warm-gray)] animate-fade-in-up delay-1">
+        Als deine Thermomix-Repräsentantin in Nackenheim bin ich buchstäblich um die Ecke.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 px-6">
+    <div class="max-w-3xl mx-auto reveal">
+      <h2 class="mb-6">Deine Thermomix-Beraterin in Nackenheim</h2>
+      <p class="text-[var(--color-warm-gray)] text-lg leading-relaxed mb-6">
+        Nackenheim ist mein Zuhause – und genau hier biete ich dir eine persönliche Thermomix-Beratung,
+        die keine Online-Seite ersetzen kann. Ich komme direkt zu dir, bringe den Thermomix TM7 mit
+        und zeige dir alles in deiner eigenen Küche.
+      </p>
+      <p class="text-[var(--color-warm-gray)] text-lg leading-relaxed mb-6">
+        Ob du den Thermomix einfach mal kennenlernen möchtest, ein Erlebniskochen mit Freundinnen
+        planst oder konkrete Fragen zu Preisen und Finanzierung hast – ich berate dich ehrlich
+        und ohne Druck. In Nackenheim und natürlich auch in der ganzen Umgebung.
+      </p>
+      <p class="text-[var(--color-warm-gray)] text-lg leading-relaxed mb-8">
+        Der Thermomix TM7 ist ab 1.549 € erhältlich. Aktuell gibt es das Entspannt-kochen-Paket
+        mit 2. Mixtopf für 1.649 € und eine 0%-Finanzierung in 24 Raten. Ruf mich einfach an
+        oder schreib mir – ich freu mich auf dich, Nackenheim!
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <CTAButton href="tel:+4917631276883" label="0176 31276883 anrufen" />
+        <CTAButton href="/erlebniskochen/" label="Erlebniskochen buchen" variant="outline" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Auch in der Nähe -->
+  <section class="py-16 px-6 bg-white">
+    <div class="max-w-3xl mx-auto text-center reveal">
+      <h2 class="mb-6">Auch in der Nähe</h2>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/kontakt/" class="px-6 py-3 bg-[var(--color-cream)] rounded-sm shadow-sm hover:shadow-md transition-shadow font-semibold">Mainz</a>
+        <a href="/thermomix-ingelheim/" class="px-6 py-3 bg-[var(--color-cream)] rounded-sm shadow-sm hover:shadow-md transition-shadow font-semibold">Ingelheim</a>
+        <a href="/thermomix-bingen/" class="px-6 py-3 bg-[var(--color-cream)] rounded-sm shadow-sm hover:shadow-md transition-shadow font-semibold">Bingen</a>
+        <a href="/thermomix-rheinhessen/" class="px-6 py-3 bg-[var(--color-cream)] rounded-sm shadow-sm hover:shadow-md transition-shadow font-semibold">Rheinhessen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kontakt -->
+  <section class="py-16 px-6">
+    <div class="max-w-2xl mx-auto reveal">
+      <h2 class="mb-6">Nachricht schreiben</h2>
+      <KontaktFormular formName="kontakt-nackenheim" />
+    </div>
+  </section>
+</BaseLayout>

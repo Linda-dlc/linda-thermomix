@@ -1,0 +1,57 @@
+---
+interface Props {
+  image: string;
+  imageAlt: string;
+  headline: string;
+  subline?: string;
+  cta1?: { label: string; href: string };
+  cta2?: { label: string; href: string };
+}
+
+const { image, imageAlt, headline, subline, cta1, cta2 } = Astro.props;
+---
+
+<section class="relative min-h-[85vh] flex items-center overflow-hidden">
+  <!-- Background Image -->
+  <div class="absolute inset-0">
+    <img
+      src={image}
+      alt={imageAlt}
+      class="w-full h-full object-cover"
+      loading="eager"
+    />
+    <div class="absolute inset-0 bg-gradient-to-r from-[var(--color-espresso)]/70 via-[var(--color-espresso)]/40 to-transparent"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-6xl mx-auto px-6 py-24 md:py-32">
+    <div class="max-w-xl">
+      <h1 class="text-[var(--color-cream)] mb-6 animate-fade-in-up">
+        {headline}
+      </h1>
+      {subline && (
+        <p class="text-lg md:text-xl text-[var(--color-cream)]/90 mb-10 animate-fade-in-up delay-1 font-light leading-relaxed">
+          {subline}
+        </p>
+      )}
+      <div class="flex flex-col sm:flex-row gap-4 animate-fade-in-up delay-2">
+        {cta1 && (
+          <a
+            href={cta1.href}
+            class="inline-block px-8 py-4 bg-[var(--color-terracotta)] text-[var(--color-cream)] font-semibold rounded-sm hover:bg-[var(--color-terracotta-dark)] hover:scale-[1.02] transition-all text-center"
+          >
+            {cta1.label}
+          </a>
+        )}
+        {cta2 && (
+          <a
+            href={cta2.href}
+            class="inline-block px-8 py-4 border-2 border-[var(--color-cream)] text-[var(--color-cream)] font-semibold rounded-sm hover:bg-[var(--color-cream)] hover:text-[var(--color-espresso)] transition-all text-center"
+          >
+            {cta2.label}
+          </a>
+        )}
+      </div>
+    </div>
+  </div>
+</section>

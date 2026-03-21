@@ -1,0 +1,72 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-[var(--color-espresso)] text-[var(--color-cream)] mt-20">
+  <div class="max-w-6xl mx-auto px-6 py-16">
+    <!-- Top Section -->
+    <div class="grid md:grid-cols-3 gap-12 mb-12">
+      <!-- Brand -->
+      <div>
+        <p class="font-[var(--font-display)] text-2xl font-bold mb-4">
+          Linda <span class="text-[var(--color-terracotta)]">Thermomix</span>
+        </p>
+        <p class="text-[var(--color-warm-gray)] leading-relaxed">
+          Deine Thermomix-Repräsentantin<br>
+          für Mainz, Nackenheim & Umgebung
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <p class="font-semibold text-sm uppercase tracking-wider mb-4 text-[var(--color-sage-light)]">Seiten</p>
+        <ul class="space-y-2">
+          <li><a href="/angebote/" class="text-[var(--color-warm-gray)] hover:text-[var(--color-terracotta)] transition-colors">Angebote</a></li>
+          <li><a href="/erlebniskochen/" class="text-[var(--color-warm-gray)] hover:text-[var(--color-terracotta)] transition-colors">Erlebniskochen</a></li>
+          <li><a href="/katalog/" class="text-[var(--color-warm-gray)] hover:text-[var(--color-terracotta)] transition-colors">Katalog</a></li>
+          <li><a href="/ueber-linda/" class="text-[var(--color-warm-gray)] hover:text-[var(--color-terracotta)] transition-colors">Über Linda</a></li>
+          <li><a href="/kontakt/" class="text-[var(--color-warm-gray)] hover:text-[var(--color-terracotta)] transition-colors">Kontakt</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <p class="font-semibold text-sm uppercase tracking-wider mb-4 text-[var(--color-sage-light)]">Kontakt</p>
+        <ul class="space-y-2 text-[var(--color-warm-gray)]">
+          <li>
+            <a href="tel:+4917631276883" class="hover:text-[var(--color-terracotta)] transition-colors">
+              0176 31276883
+            </a>
+          </li>
+          <li>
+            <a href="mailto:linda.de-la-cruz-perea@thermomix-kundenberatung.de" class="hover:text-[var(--color-terracotta)] transition-colors text-sm break-all">
+              linda.de-la-cruz-perea@thermomix-kundenberatung.de
+            </a>
+          </li>
+          <li class="text-sm">Nackenheim · Mainz · Rheinhessen</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <hr class="border-[var(--color-warm-gray)]/20 mb-8" />
+
+    <!-- Disclaimer -->
+    <p class="text-xs text-[var(--color-warm-gray)] leading-relaxed mb-6 max-w-3xl">
+      Diese Website ist eine private Initiative von Linda De La Cruz Perea.
+      Sie steht in keinem Zusammenhang mit der Vorwerk Deutschland Stiftung & Co. KG.
+      Thermomix® ist eine eingetragene Marke der Vorwerk Deutschland Stiftung & Co. KG,
+      42270 Wuppertal. Die Verwendung erfolgt ausschließlich im Rahmen der Tätigkeit
+      als offizielle Thermomix®-Repräsentantin.
+    </p>
+
+    <!-- Bottom -->
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-xs text-[var(--color-warm-gray)]">
+      <p>&copy; {year} Linda De La Cruz Perea</p>
+      <div class="flex gap-6">
+        <a href="/impressum/" class="hover:text-[var(--color-terracotta)] transition-colors">Impressum</a>
+        <a href="/datenschutz/" class="hover:text-[var(--color-terracotta)] transition-colors">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>

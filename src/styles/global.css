@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+/* ===== FONTS (self-hosted, DSGVO-konform) ===== */
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/playfair-display-latin-400-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/playfair-display-latin-700-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/source-sans-3-latin-400-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/source-sans-3-latin-600-normal.woff2') format('woff2');
+}
+
+/* ===== DESIGN TOKENS ===== */
+@theme {
+  --color-cream: #FAF7F2;
+  --color-terracotta: #C4775A;
+  --color-terracotta-dark: #A8614A;
+  --color-sage: #8B9E7E;
+  --color-sage-light: #A8B89E;
+  --color-espresso: #2D2926;
+  --color-warm-gray: #6B6560;
+  --color-peach: #F0DDD4;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Source Sans 3', 'Segoe UI', sans-serif;
+}
+
+/* ===== BASE STYLES ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-espresso);
+  background-color: var(--color-cream);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  line-height: 1.2;
+  color: var(--color-espresso);
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; }
+h2 { font-size: clamp(1.5rem, 3.5vw, 2.5rem); font-weight: 700; }
+h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); font-weight: 400; }
+
+a {
+  color: var(--color-terracotta);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+a:hover {
+  color: var(--color-terracotta-dark);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.7s ease-out both;
+}
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out both;
+}
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+
+/* Intersection Observer reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTAButton from '../../components/CTAButton.astro';
+import KontaktFormular from '../../components/KontaktFormular.astro';
+---
+
+<BaseLayout
+  title="Thermomix Beraterin Rheinhessen · Linda De La Cruz"
+  description="Thermomix Beraterin für ganz Rheinhessen. Von Nackenheim bis Bingen – Linda berät dich persönlich und kostenlos."
+>
+  <section class="py-20 px-6 bg-[var(--color-peach)]/30">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="mb-6 animate-fade-in-up">Thermomix für Rheinhessen – persönlich & nah</h1>
+      <p class="text-lg text-[var(--color-warm-gray)] animate-fade-in-up delay-1">
+        Deine Thermomix-Beraterin für die gesamte Region Rheinhessen – von Nackenheim bis Bingen.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 px-6">
+    <div class="max-w-3xl mx-auto reveal">
+      <h2 class="mb-6">Thermomix Beratung in ganz Rheinhessen</h2>
+      <p class="text-[var(--color-warm-gray)] text-lg leading-relaxed mb-6">
+        Rheinhessen ist meine Heimat – und genau hier bin ich als Thermomix-Repräsentantin
+        für dich unterwegs. Egal ob du in Nackenheim, Mainz, Ingelheim, Bingen, Nieder-Olm,
+        Bodenheim oder Heidesheim wohnst: Ich komme zu dir und zeige dir den Thermomix TM7.
+      </p>
+      <p class="text-[var(--color-warm-gray)] text-lg leading-relaxed mb-6">
+        In Rheinhessen dreht sich vieles ums gute Essen und Genießen – der Thermomix passt
+        perfekt dazu. Ob schnelle Familiengerichte unter der Woche oder ein besonderes Menü
+        am Wochenende: Mit dem TM7 gelingt alles einfach und zeitsparend.
+      </p>
+      <p class="text-[var(--color-warm-gray)] text-lg leading-relaxed mb-8">
+        Buche ein kostenloses Erlebniskochen in Rheinhessen und überzeuge dich selbst!
+        Ich komme zu dir, bringe alles mit und wir kochen zusammen. Persönlich, ehrlich
+        und mit jeder Menge Spaß.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <CTAButton href="tel:+4917631276883" label="0176 31276883 anrufen" />
+        <CTAButton href="/erlebniskochen/" label="Erlebniskochen buchen" variant="outline" />
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 px-6 bg-white">
+    <div class="max-w-3xl mx-auto text-center reveal">
+      <h2 class="mb-6">Orte in Rheinhessen</h2>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/thermomix-nackenheim/" class="px-6 py-3 bg-[var(--color-cream)] rounded-sm shadow-sm hover:shadow-md transition-shadow font-semibold">Nackenheim</a>
+        <a href="/kontakt/" class="px-6 py-3 bg-[var(--color-cream)] rounded-sm shadow-sm hover:shadow-md transition-shadow font-semibold">Mainz</a>
+        <a href="/thermomix-ingelheim/" class="px-6 py-3 bg-[var(--color-cream)] rounded-sm shadow-sm hover:shadow-md transition-shadow font-semibold">Ingelheim</a>
+        <a href="/thermomix-bingen/" class="px-6 py-3 bg-[var(--color-cream)] rounded-sm shadow-sm hover:shadow-md transition-shadow font-semibold">Bingen</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 px-6">
+    <div class="max-w-2xl mx-auto reveal">
+      <h2 class="mb-6">Nachricht schreiben</h2>
+      <KontaktFormular formName="kontakt-rheinhessen" />
+    </div>
+  </section>
+</BaseLayout>

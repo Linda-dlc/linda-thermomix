@@ -1,0 +1,109 @@
+---
+interface Props {
+  formName?: string;
+  showTermin?: boolean;
+  showOrt?: boolean;
+}
+
+const { formName = 'kontakt', showTermin = false, showOrt = false } = Astro.props;
+---
+
+<form
+  name={formName}
+  method="POST"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  class="space-y-6"
+>
+  <input type="hidden" name="form-name" value={formName} />
+  <p class="hidden">
+    <label>Nicht ausfüllen: <input name="bot-field" /></label>
+  </p>
+
+  <div class="grid md:grid-cols-2 gap-6">
+    <div>
+      <label for={`${formName}-name`} class="block text-sm font-semibold mb-2">Name *</label>
+      <input
+        type="text"
+        id={`${formName}-name`}
+        name="name"
+        required
+        class="w-full px-4 py-3 border border-[var(--color-peach)] rounded-sm bg-white focus:outline-none focus:border-[var(--color-terracotta)] transition-colors"
+      />
+    </div>
+    <div>
+      <label for={`${formName}-telefon`} class="block text-sm font-semibold mb-2">Telefon</label>
+      <input
+        type="tel"
+        id={`${formName}-telefon`}
+        name="telefon"
+        class="w-full px-4 py-3 border border-[var(--color-peach)] rounded-sm bg-white focus:outline-none focus:border-[var(--color-terracotta)] transition-colors"
+      />
+    </div>
+  </div>
+
+  <div>
+    <label for={`${formName}-email`} class="block text-sm font-semibold mb-2">E-Mail *</label>
+    <input
+      type="email"
+      id={`${formName}-email`}
+      name="email"
+      required
+      class="w-full px-4 py-3 border border-[var(--color-peach)] rounded-sm bg-white focus:outline-none focus:border-[var(--color-terracotta)] transition-colors"
+    />
+  </div>
+
+  {showTermin && (
+    <div>
+      <label for={`${formName}-termin`} class="block text-sm font-semibold mb-2">Wunschtermin</label>
+      <input
+        type="date"
+        id={`${formName}-termin`}
+        name="wunschtermin"
+        class="w-full px-4 py-3 border border-[var(--color-peach)] rounded-sm bg-white focus:outline-none focus:border-[var(--color-terracotta)] transition-colors"
+      />
+    </div>
+  )}
+
+  {showOrt && (
+    <div>
+      <label for={`${formName}-ort`} class="block text-sm font-semibold mb-2">PLZ / Ort</label>
+      <input
+        type="text"
+        id={`${formName}-ort`}
+        name="ort"
+        class="w-full px-4 py-3 border border-[var(--color-peach)] rounded-sm bg-white focus:outline-none focus:border-[var(--color-terracotta)] transition-colors"
+      />
+    </div>
+  )}
+
+  <div>
+    <label for={`${formName}-nachricht`} class="block text-sm font-semibold mb-2">Nachricht</label>
+    <textarea
+      id={`${formName}-nachricht`}
+      name="nachricht"
+      rows="4"
+      class="w-full px-4 py-3 border border-[var(--color-peach)] rounded-sm bg-white focus:outline-none focus:border-[var(--color-terracotta)] transition-colors resize-y"
+    ></textarea>
+  </div>
+
+  <div class="flex items-start gap-3">
+    <input
+      type="checkbox"
+      id={`${formName}-datenschutz`}
+      name="datenschutz"
+      required
+      class="mt-1 accent-[var(--color-terracotta)]"
+    />
+    <label for={`${formName}-datenschutz`} class="text-sm text-[var(--color-warm-gray)]">
+      Ich habe die <a href="/datenschutz/" class="underline">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zu. *
+    </label>
+  </div>
+
+  <button
+    type="submit"
+    class="px-8 py-4 bg-[var(--color-terracotta)] text-[var(--color-cream)] font-semibold rounded-sm hover:bg-[var(--color-terracotta-dark)] hover:scale-[1.02] transition-all"
+  >
+    Absenden
+  </button>
+</form>

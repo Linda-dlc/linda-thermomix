@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTAButton from '../components/CTAButton.astro';
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Linda De La Cruz Perea",
+  "jobTitle": "Thermomix Repräsentantin",
+  "telephone": "+4917631276883",
+  "email": "linda.de-la-cruz-perea@thermomix-kundenberatung.de",
+  "areaServed": ["Nackenheim", "Mainz", "Ingelheim am Rhein", "Bingen am Rhein", "Rheinhessen"]
+};
+---
+
+<BaseLayout
+  title="Über Linda – Deine Thermomix-Beraterin in Mainz"
+  description="Linda De La Cruz Perea – deine Thermomix-Repräsentantin für Nackenheim, Mainz & Rheinhessen. Persönlich, ehrlich, leidenschaftlich."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+
+  <!-- Header -->
+  <section class="py-20 px-6 bg-[var(--color-peach)]/30">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="mb-6 animate-fade-in-up">Hallo, ich bin Linda!</h1>
+    </div>
+  </section>
+
+  <!-- Über Linda Content -->
+  <section class="py-16 px-6">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-5 gap-12 items-start">
+      <!-- Text -->
+      <div class="md:col-span-3 reveal">
+        <p class="text-lg text-[var(--color-warm-gray)] leading-relaxed mb-6">
+          Kochen war für mich schon immer mehr als nur Nahrung zubereiten – es ist meine Art,
+          Menschen zusammenzubringen und Freude zu schenken. Als ich den Thermomix zum ersten Mal
+          ausprobiert habe, war ich sofort begeistert: So einfach, so schnell, so lecker!
+        </p>
+        <p class="text-lg text-[var(--color-warm-gray)] leading-relaxed mb-6">
+          Deshalb bin ich jetzt als offizielle Thermomix-Repräsentantin unterwegs – und ich liebe es!
+          Ich komme zu dir nach Hause, zeige dir alles in Ruhe und beantworte ehrlich jede Frage.
+          Kein Verkaufsdruck, versprochen.
+        </p>
+        <p class="text-lg text-[var(--color-warm-gray)] leading-relaxed mb-8">
+          Mein Zuhause ist in Nackenheim, und ich bin in der ganzen Region für dich da:
+          Mainz, Ingelheim, Bingen und ganz Rheinhessen. Lass uns kochen!
+        </p>
+
+        <div class="flex flex-wrap gap-3 mb-8">
+          <span class="px-4 py-2 bg-[var(--color-peach)]/50 rounded-sm text-sm font-semibold">Nackenheim</span>
+          <span class="px-4 py-2 bg-[var(--color-peach)]/50 rounded-sm text-sm font-semibold">Mainz</span>
+          <span class="px-4 py-2 bg-[var(--color-peach)]/50 rounded-sm text-sm font-semibold">Ingelheim</span>
+          <span class="px-4 py-2 bg-[var(--color-peach)]/50 rounded-sm text-sm font-semibold">Bingen</span>
+          <span class="px-4 py-2 bg-[var(--color-peach)]/50 rounded-sm text-sm font-semibold">Rheinhessen</span>
+        </div>
+
+        <CTAButton href="/erlebniskochen/" label="Lass uns kochen!" />
+      </div>
+
+      <!-- Fotos -->
+      <div class="md:col-span-2 space-y-6 reveal delay-2">
+        <img
+          src="/assets/fotos/linda-profil-1.jpg"
+          alt="Linda De La Cruz Perea – Thermomix Beraterin"
+          class="w-full rounded-sm shadow-lg"
+          loading="lazy"
+        />
+        <img
+          src="/assets/fotos/linda-profil-2.jpg"
+          alt="Linda beim Erlebniskochen mit Thermomix"
+          class="w-full rounded-sm shadow-md"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
