@@ -45,36 +45,38 @@
   --font-body: 'Source Sans 3', 'Segoe UI', sans-serif;
 }
 
-/* ===== BASE STYLES ===== */
-html {
-  scroll-behavior: smooth;
-}
+/* ===== BASE STYLES (in @layer so Tailwind utilities can override) ===== */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 
-body {
-  font-family: var(--font-body);
-  color: var(--color-espresso);
-  background-color: var(--color-cream);
-  line-height: 1.7;
-  -webkit-font-smoothing: antialiased;
-}
+  body {
+    font-family: var(--font-body);
+    color: var(--color-espresso);
+    background-color: var(--color-cream);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
 
-h1, h2, h3, h4 {
-  font-family: var(--font-display);
-  line-height: 1.2;
-  color: var(--color-espresso);
-}
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    line-height: 1.2;
+    color: var(--color-espresso);
+  }
 
-h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; }
-h2 { font-size: clamp(1.5rem, 3.5vw, 2.5rem); font-weight: 700; }
-h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); font-weight: 400; }
+  h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; }
+  h2 { font-size: clamp(1.5rem, 3.5vw, 2.5rem); font-weight: 700; }
+  h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); font-weight: 400; }
 
-a {
-  color: var(--color-terracotta);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-a:hover {
-  color: var(--color-terracotta-dark);
+  a {
+    color: var(--color-terracotta);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  a:hover {
+    color: var(--color-terracotta-dark);
+  }
 }
 
 /* ===== ANIMATIONS ===== */
