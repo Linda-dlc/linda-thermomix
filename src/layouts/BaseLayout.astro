@@ -20,6 +20,7 @@ const { title, description, image } = Astro.props;
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#C4775A" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <SEO title={title} description={description} image={image} />
 </head>
 <body class="min-h-screen flex flex-col">
@@ -28,6 +29,19 @@ const { title, description, image } = Astro.props;
     <slot />
   </main>
   <Footer />
+
+  <!-- Redirect to /admin/ after Identity login -->
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on('init', (user: any) => {
+        if (!user) {
+          window.netlifyIdentity.on('login', () => {
+            document.location.href = '/admin/';
+          });
+        }
+      });
+    }
+  </script>
 
   <!-- Intersection Observer for reveal animations -->
   <script>
