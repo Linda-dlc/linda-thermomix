@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTAButton from '../components/CTAButton.astro';
+
+const gerichte = [
+  { nr: 1, name: 'Risotto alla Milanese', kommentar: 'So cremig – wie im Restaurant!' },
+  { nr: 2, name: 'Kartoffelsuppe', kommentar: 'Mein Klassiker für kalte Tage.' },
+  { nr: 3, name: 'Schokokuchen', kommentar: 'Der beste Kuchen, den ich je gemacht habe.' },
+  { nr: 4, name: 'Thai-Curry', kommentar: 'In 20 Minuten fertig – unglaublich!' },
+  { nr: 5, name: 'Vollkornbrot', kommentar: 'Nie wieder Brot vom Bäcker kaufen.' },
+  { nr: 6, name: 'Lachs mit Gemüse', kommentar: 'Alles gleichzeitig – perfekt gegart.' },
+  { nr: 7, name: 'Erdbeereis', kommentar: '' },
+  { nr: 8, name: 'Pasta Bolognese', kommentar: '' },
+  { nr: 9, name: 'Gemüsequiche', kommentar: '' },
+];
+---
+
+<BaseLayout
+  title="Galerie – Was unsere Kunden kochen · Thermomix Mainz"
+  description="Echte Gerichte, echte Begeisterung – entdecke was Lindas Kunden mit dem Thermomix zaubern. Lass dich inspirieren!"
+>
+  <!-- Header -->
+  <section class="py-20 px-6 bg-[var(--color-peach)]/30">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="mb-4 animate-fade-in-up">Was unsere Kunden kochen</h1>
+      <p class="text-lg text-[var(--color-warm-gray)] leading-relaxed max-w-2xl mx-auto animate-fade-in-up" style="animation-delay: 0.1s;">
+        Echte Gerichte, echte Begeisterung – von Lindas Kunden
+      </p>
+    </div>
+  </section>
+
+  <!-- Galerie Grid -->
+  <section class="py-16 px-6">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {gerichte.map((gericht) => (
+        <div class="group reveal rounded-sm overflow-hidden shadow-md hover:shadow-xl transition-shadow bg-white">
+          <!-- Bild oder Platzhalter -->
+          <div class="aspect-[4/3] relative overflow-hidden bg-[#E8E2DA]">
+            <img
+              src={`/assets/galerie/gericht-${gericht.nr}.jpg`}
+              alt={gericht.name}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            />
+            <div class="absolute inset-0 items-center justify-center text-[var(--color-warm-gray)] text-sm font-semibold hidden">
+              Foto folgt
+            </div>
+          </div>
+
+          <!-- Text -->
+          <div class="p-5">
+            <h3 class="text-lg mb-1 text-[var(--color-espresso)]">{gericht.name}</h3>
+            {gericht.kommentar && (
+              <p class="text-sm text-[var(--color-warm-gray)] italic">
+                &bdquo;{gericht.kommentar}&ldquo;
+              </p>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 px-6 bg-[var(--color-terracotta)]">
+    <div class="max-w-3xl mx-auto text-center text-[var(--color-cream)]">
+      <h2 class="text-[var(--color-cream)] mb-4">Auch du willst so kochen?</h2>
+      <p class="text-lg mb-8 opacity-90">
+        Erlebe den Thermomix live bei einem Erlebniskochen – kostenlos und unverbindlich.
+      </p>
+      <a
+        href="/erlebniskochen/"
+        class="inline-block px-8 py-4 bg-[var(--color-cream)] text-[var(--color-terracotta)] font-semibold rounded-sm hover:scale-[1.02] transition-all"
+      >
+        Erlebniskochen buchen!
+      </a>
+    </div>
+  </section>
+</BaseLayout>
