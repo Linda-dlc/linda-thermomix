@@ -1,18 +1,47 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CTAButton from '../components/CTAButton.astro';
+import fs from 'node:fs';
 
-const gerichte = [
-  { nr: 1, name: 'Risotto alla Milanese', kommentar: 'So cremig – wie im Restaurant!' },
-  { nr: 2, name: 'Kartoffelsuppe', kommentar: 'Mein Klassiker für kalte Tage.' },
-  { nr: 3, name: 'Schokokuchen', kommentar: 'Der beste Kuchen, den ich je gemacht habe.' },
-  { nr: 4, name: 'Thai-Curry', kommentar: 'In 20 Minuten fertig – unglaublich!' },
-  { nr: 5, name: 'Vollkornbrot', kommentar: 'Nie wieder Brot vom Bäcker kaufen.' },
-  { nr: 6, name: 'Lachs mit Gemüse', kommentar: 'Alles gleichzeitig – perfekt gegart.' },
-  { nr: 7, name: 'Erdbeereis', kommentar: '' },
-  { nr: 8, name: 'Pasta Bolognese', kommentar: '' },
-  { nr: 9, name: 'Gemüsequiche', kommentar: '' },
+// Read gallery content from CMS markdown
+let gerichte = [
+  { name: 'Risotto alla Milanese', kommentar: 'So cremig – wie im Restaurant!', bild: '/assets/galerie/gericht-1.jpg' },
+  { name: 'Kartoffelsuppe', kommentar: 'Mein Klassiker für kalte Tage.', bild: '/assets/galerie/gericht-2.jpg' },
+  { name: 'Schokokuchen', kommentar: 'Der beste Kuchen, den ich je gemacht habe.', bild: '/assets/galerie/gericht-3.jpg' },
+  { name: 'Thai-Curry', kommentar: 'In 20 Minuten fertig – unglaublich!', bild: '/assets/galerie/gericht-4.jpg' },
+  { name: 'Vollkornbrot', kommentar: 'Nie wieder Brot vom Bäcker kaufen.', bild: '/assets/galerie/gericht-5.jpg' },
+  { name: 'Lachs mit Gemüse', kommentar: 'Alles gleichzeitig – perfekt gegart.', bild: '/assets/galerie/gericht-6.jpg' },
+  { name: 'Erdbeereis', kommentar: '', bild: '/assets/galerie/gericht-7.jpg' },
+  { name: 'Pasta Bolognese', kommentar: '', bild: '/assets/galerie/gericht-8.jpg' },
+  { name: 'Gemüsequiche', kommentar: '', bild: '/assets/galerie/gericht-9.jpg' },
 ];
+
+try {
+  const raw = fs.readFileSync('src/content/galerie/galerie.md', 'utf-8');
+  // Parse YAML frontmatter
+  const yamlMatch = raw.match(/^---\n([\s\S]*?)\n---/);
+  if (yamlMatch) {
+    const yaml = yamlMatch[1];
+    // Parse gerichte list from YAML
+    const parsed: { name: string; kommentar: string; bild: string }[] = [];
+    const entries = yaml.split(/\n  - /);
+    for (const entry of entries) {
+      const nameMatch = entry.match(/name:\s*"([^"]*)"/);
+      const kommentarMatch = entry.match(/kommentar:\s*"([^"]*)"/);
+      const bildMatch = entry.match(/bild:\s*"?([^"\n]*)"?/);
+      if (nameMatch) {
+        parsed.push({
+          name: nameMatch[1],
+          kommentar: kommentarMatch ? kommentarMatch[1] : '',
+          bild: bildMatch ? bildMatch[1].trim() : '',
+        });
+      }
+    }
+    if (parsed.length > 0) {
+      gerichte = parsed;
+    }
+  }
+} catch {}
 ---
 
 <BaseLayout
@@ -32,12 +61,12 @@ const gerichte = [
   <!-- Galerie Grid -->
   <section class="py-16 px-6">
     <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      {gerichte.map((gericht) => (
+      {gerichte.map((gericht, i) => (
         <div class="group reveal rounded-sm overflow-hidden shadow-md hover:shadow-xl transition-shadow bg-white">
           <!-- Bild oder Platzhalter -->
           <div class="aspect-[4/3] relative overflow-hidden bg-[#E8E2DA]">
             <img
-              src={`/assets/galerie/gericht-${gericht.nr}.jpg`}
+              src={gericht.bild || `/assets/galerie/gericht-${i + 1}.jpg`}
               alt={gericht.name}
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               loading="lazy"

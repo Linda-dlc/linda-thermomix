@@ -32,6 +32,34 @@ collections:
             required: false
             hint: "JPG oder PNG, max. 5 MB"
 
+  - name: "galerie"
+    label: "Kunden-Galerie"
+    description: "Hier kannst du Kundenfotos und Gerichte für die Galerie-Seite pflegen."
+    files:
+      - name: "galerie"
+        label: "Galerie-Einträge"
+        file: "src/content/galerie/galerie.md"
+        fields:
+          - label: "Gerichte"
+            name: "gerichte"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - label: "Gerichtsname"
+                name: "name"
+                widget: "string"
+                hint: "z.B. Risotto alla Milanese"
+              - label: "Kundenkommentar"
+                name: "kommentar"
+                widget: "string"
+                required: false
+                hint: "Optionaler kurzer Kommentar vom Kunden"
+              - label: "Foto"
+                name: "bild"
+                widget: "image"
+                required: false
+                hint: "JPG oder PNG, querformat empfohlen"
+
   - name: "katalog"
     label: "Gastgeber-Katalog"
     description: "Hier kannst du den aktuellen Katalog als PDF hochladen."
